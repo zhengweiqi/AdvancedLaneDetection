@@ -178,8 +178,8 @@ def measureCurvature(leftLine, rightLine):
     leftFitReal = np.polyfit(leftLine.all_y*ymPerPix, leftLine.all_x*xmPerPix, 2)
     rightFitReal = np.polyfit(rightLine.all_y*ymPerPix, rightLine.all_x*xmPerPix, 2)
 
-    leftCur = pow((1+(2*leftFitReal[0]*maxY+leftFitReal[1])**2),1.5) / abs(2*leftFitReal[0])
-    rightCur = pow((1+(2*rightFitReal[0]*maxY+rightFitReal[1])**2),1.5) / abs(2*rightFitReal[0])
+    leftCur = pow((1+(2*leftFitReal[0]*maxY*ymPerPix+leftFitReal[1])**2),1.5) / abs(2*leftFitReal[0])
+    rightCur = pow((1+(2*rightFitReal[0]*maxY*ymPerPix+rightFitReal[1])**2),1.5) / abs(2*rightFitReal[0])
     
     return np.mean([leftCur, rightCur])
     
